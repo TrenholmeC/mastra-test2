@@ -2,6 +2,21 @@ import { Agent } from "@mastra/core/agent";
 import { getListing } from "../tools/get-listing";
 import { queryListings } from "../tools/query-listing";
 
+import { Memory } from "@mastra/memory";
+import { LibSQLStore } from "@mastra/libsql";
+
+const storage = new LibSQLStore({
+  id: "listings-memory",
+  url: "file:./mastra.db",
+});
+
+export const memory = new Memory({
+  storage,
+  options: {
+    lastMessages: 20,
+  },
+});
+
 export const listingsAgent = new Agent({
   id: "listings-agent",
 
@@ -23,7 +38,26 @@ export const listingsAgent = new Agent({
     - Include relevant vehicle specifications.
     - Include seller and location information when available.
     - Do not claim information that isn't present in the listing.
+
+    When you search for listings, each result has a unique listing ID.
+
+    When presenting listings to the user, preserve the listing ID
+    in the conversation context.
+
+    If the user refers to a previous listing using phrases such as
+    "that one", "the first one", "the second one", "the last one",
+    "the RAV4 you showed me", or similar language, use the previous
+    search results to resolve which listing they mean.
+
+    Once you identify the listing ID, call get-listing to retrieve
+    the current data from Supabase.
+
+    Do not invent a listing ID.
+
+    If the reference is ambiguous, ask the user which listing they mean.
   `,
+
+  memory,
 
   model: "google/gemini-3.5-flash-lite",
 

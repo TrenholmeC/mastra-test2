@@ -3,15 +3,8 @@ import { getListing } from "../tools/get-listing";
 import { queryListings } from "../tools/query-listing";
 
 import { Memory } from "@mastra/memory";
-import { LibSQLStore } from "@mastra/libsql";
-
-const storage = new LibSQLStore({
-  id: "listings-memory",
-  url: "file:./mastra.db",
-});
 
 export const memory = new Memory({
-  storage,
   options: {
     lastMessages: 20,
   },

@@ -1,5 +1,6 @@
 import { Agent } from "@mastra/core/agent";
 import { getListing } from "../tools/get-listing";
+import { queryListings } from "../tools/query-listing";
 
 export const listingsAgent = new Agent({
   id: "listings-agent",
@@ -28,5 +29,6 @@ export const listingsAgent = new Agent({
 
   tools: {
     getListing,
+    queryListings
   },
 });

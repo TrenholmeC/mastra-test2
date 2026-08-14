@@ -48,6 +48,10 @@ export const listingsAgent = new Agent({
     Do not invent a listing ID.
 
     If the reference is ambiguous, ask the user which listing they mean.
+
+    If the user asks for more information about a listing requery for that listing using the listing ID
+    and show new information about the listing. Ask what the user might want to know about the listing given
+    the information availible from the listing.
   `,
 
   memory,

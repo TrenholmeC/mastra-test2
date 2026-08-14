@@ -8,7 +8,7 @@ import {
   MastraPlatformExporter,
   SensitiveDataFilter,
 } from '@mastra/observability';
-import { docsExpert } from './agents/docs-expert';
+import { listingsAgent } from './agents/listing-agent';
 
 export const mastra = new Mastra({
   storage: new LibSQLStore({
@@ -16,13 +16,13 @@ export const mastra = new Mastra({
     url: process.env.TURSO_DATABASE_URL!,
     authToken: process.env.TURSO_AUTH_TOKEN,
   }),
-  agents: { docsExpert },
+  agents: { listingsAgent },
   editor: new MastraEditor({ source: 'code', codePath: 'mastra/editor' }),
   logger: new PinoLogger({ name: 'Mastra', level: 'info' }),
   observability: new Observability({
     configs: {
       default: {
-        serviceName: 'docs-expert',
+        serviceName: 'listings-agent',
         exporters: [new MastraStorageExporter(), new MastraPlatformExporter()],
         spanOutputProcessors: [new SensitiveDataFilter()],
       },

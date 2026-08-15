@@ -19,18 +19,19 @@
     "@google/genai": "latest",
     "@mastra/brightdata": "^0.3.0",
     "@mastra/core": "latest",
+    "@mastra/deployer-cloudflare": "latest",
     "@mastra/editor": "latest",
     "@mastra/libsql": "latest",
     "@mastra/loggers": "latest",
     "@mastra/memory": "latest",
     "@mastra/observability": "latest",
-    "@supabase/supabase-js": "latest",
-    "@mastra/deployer-cloudflare": "latest",
     "@mastra/pg": "latest",
+    "@supabase/supabase-js": "latest",
     "zod": "^4.3.6"
   },
-  "overrides": {
-    "unicorn-magic": "0.3.0"
+  "resolutions": {
+    "npm-run-path": "^5.1.0",
+    "unicorn-magic": "^0.4.0"
   },
   "devDependencies": {
     "@types/node": "^24.10.9",

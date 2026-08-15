@@ -33,6 +33,8 @@ export const researchAgent = new Agent({
     After using the webResearch tool use the createVehicle tool to add the vehicle information
     to the database. Seperate the make, model and year and put them in the respected fields move all
     other information to the description field. Finally give the result from the webResearch tool to the user.
+
+    Do not make up any information about the vehicle, only return information form the web searches.
   `,
 
   memory,

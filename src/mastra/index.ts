@@ -1,4 +1,5 @@
 import { Mastra } from '@mastra/core/mastra';
+import { CloudflareDeployer } from '@mastra/deployer-cloudflare';
 import { MastraEditor } from '@mastra/editor';
 import { LibSQLStore } from '@mastra/libsql';
 import { PinoLogger } from '@mastra/loggers';
@@ -13,6 +14,7 @@ import { researchAgent } from './agents/research-agent';
 import { insertAgent } from './agents/insert-agent';
 
 export const mastra = new Mastra({
+  deployer: new CloudflareDeployer({ name: 'your-project-name' }),
   storage: new LibSQLStore({
     id: 'mastra-storage',
     url: process.env.TURSO_DATABASE_URL!,

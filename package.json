@@ -25,6 +25,7 @@
     "@mastra/memory": "latest",
     "@mastra/observability": "latest",
     "@supabase/supabase-js": "latest",
+    "@mastra/deployer-cloudflare": "latest",
     "zod": "^4.3.6"
   },
   "devDependencies": {

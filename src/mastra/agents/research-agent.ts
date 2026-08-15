@@ -28,8 +28,6 @@ export const researchAgent = new Agent({
     If the information is not already in the database use the webResearch tool to make
     a web search to get the average price and common issues of the make, model and year.
 
-    Use only one or two web searches with the webReseach for each research request.
-
     After using the webResearch tool use the createVehicle tool to add the vehicle information
     to the database. Seperate the make, model and year and put them in the respected fields move all
     other information to the description field. Finally give the result from the webResearch tool to the user.

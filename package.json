@@ -29,8 +29,8 @@
     "@mastra/pg": "latest",
     "zod": "^4.3.6"
   },
-  "resolutions": {
-    "globby": "13.2.2"
+  "overrides": {
+    "unicorn-magic": "0.1.0"
   },
   "devDependencies": {
     "@types/node": "^24.10.9",

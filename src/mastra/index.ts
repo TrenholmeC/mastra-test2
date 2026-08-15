@@ -9,6 +9,7 @@ import {
   SensitiveDataFilter,
 } from '@mastra/observability';
 import { listingsAgent } from './agents/listing-agent';
+import { researchAgent } from './agents/research-agent';
 
 export const mastra = new Mastra({
   storage: new LibSQLStore({
@@ -16,7 +17,7 @@ export const mastra = new Mastra({
     url: process.env.TURSO_DATABASE_URL!,
     authToken: process.env.TURSO_AUTH_TOKEN,
   }),
-  agents: { listingsAgent },
+  agents: { listingsAgent,  researchAgent},
   editor: new MastraEditor({ source: 'code', codePath: 'mastra/editor' }),
   logger: new PinoLogger({ name: 'Mastra', level: 'info' }),
   observability: new Observability({

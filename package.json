@@ -23,6 +23,7 @@
     "@mastra/memory": "latest",
     "@mastra/observability": "latest",
     "@supabase/supabase-js": "latest",
+    "@google/genai": "latest",
     "zod": "^4.3.6"
   },
   "devDependencies": {

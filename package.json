@@ -30,7 +30,7 @@
     "zod": "^4.3.6"
   },
   "overrides": {
-    "unicorn-magic": "0.1.0"
+    "unicorn-magic": "0.3.0"
   },
   "devDependencies": {
     "@types/node": "^24.10.9",

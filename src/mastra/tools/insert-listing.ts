@@ -3,6 +3,10 @@ import { z } from "zod";
 import { supabase } from "../lib/supabase";
 
 const createListingInput = z.object({
+  id: z
+    .string()
+    .describe("listing ID"),
+
   title: z
     .string()
     .describe("Listing title. Only provide if explicitly known."),

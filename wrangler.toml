@@ -1,0 +1,3 @@
+name = "mastra-test2"
+main = "src/mastra/index.ts" # Change to your actual entry point file path
+compatibility_flags = [ "nodejs_compat" ]

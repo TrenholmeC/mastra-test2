@@ -29,6 +29,9 @@
     "@mastra/pg": "latest",
     "zod": "^4.3.6"
   },
+  "resolutions": {
+    "globby": "13.2.2"
+  },
   "devDependencies": {
     "@types/node": "^24.10.9",
     "dotenv": "^17.3.1",

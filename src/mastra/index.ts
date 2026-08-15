@@ -1,7 +1,6 @@
 import { Mastra } from '@mastra/core/mastra';
 import { CloudflareDeployer } from '@mastra/deployer-cloudflare';
 import { MastraEditor } from '@mastra/editor';
-import { LibSQLStore } from '@mastra/libsql';
 import { PinoLogger } from '@mastra/loggers';
 import {
   Observability,
@@ -12,14 +11,16 @@ import {
 import { queryAgent } from './agents/query-agent';
 import { researchAgent } from './agents/research-agent';
 import { insertAgent } from './agents/insert-agent';
+import { PostgresStore } from '@mastra/pg';
+const storage = new PostgresStore({
+  connectionString: process.env.SUPBASE_POSTGRES!,
+  schemaName: 'mastra_memory',
+  disableInit: false, 
+});
 
 export const mastra = new Mastra({
   deployer: new CloudflareDeployer({ name: 'your-project-name' }),
-  storage: new LibSQLStore({
-    id: 'mastra-storage',
-    url: process.env.TURSO_DATABASE_URL!,
-    authToken: process.env.TURSO_AUTH_TOKEN,
-  }),
+  
   agents: { queryAgent,  researchAgent, insertAgent},
   editor: new MastraEditor({ source: 'code', codePath: 'mastra/editor' }),
   logger: new PinoLogger({ name: 'Mastra', level: 'info' }),

@@ -10,10 +10,10 @@ export const memory = new Memory({
   },
 });
 
-export const listingsAgent = new Agent({
-  id: "listings-agent",
+export const queryAgent = new Agent({
+  id: "query-agent",
 
-  name: "Listings Agent",
+  name: "Query Agent",
 
   instructions: `
     You are a vehicle listings assistant.

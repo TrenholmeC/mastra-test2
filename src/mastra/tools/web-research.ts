@@ -7,7 +7,7 @@ const googleAI = new GoogleGenAI({
 });
 
 export const webResearch = createTool({
-  id: "web-search",
+  id: "web-research",
   description:
     "Search the web using Google and return a concise, factual summary answering the user's question. Use this for current or externally verifiable information.",
 

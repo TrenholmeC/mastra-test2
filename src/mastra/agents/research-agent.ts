@@ -1,7 +1,7 @@
 import { Agent } from "@mastra/core/agent";
 import { getVehicle } from "../tools/get-vehicle";
 import { createVehicle } from "../tools/create-vehicle";
-import { webResearch } from "../tools/web-research";
+import { webSearchTool } from '@mastra/core/tools';
 
 import { Memory } from "@mastra/memory";
 
@@ -25,10 +25,10 @@ export const researchAgent = new Agent({
     If the information is already in the database return the information to the user and do not
     use any other tools.
 
-    If the information is not already in the database use the webResearch tool to make
+    If the information is not already in the database use the webSearchTool to make
     a web search to get the average price and common issues of the make, model and year.
 
-    After using the webResearch tool use the createVehicle tool to add the vehicle information
+    After using the webSearchTool use the createVehicle tool to add the vehicle information
     to the database. Seperate the make, model and year and put them in the respected fields move all
     other information to the description field. Finally give the result from the webResearch tool to the user.
 
@@ -40,6 +40,6 @@ export const researchAgent = new Agent({
   model: "google/gemini-3.5-flash-lite",
 
   tools: {
-    createVehicle, getVehicle, webResearch
+    createVehicle, getVehicle, webSearchTool
   },
 });
